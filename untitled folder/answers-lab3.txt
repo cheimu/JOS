@@ -1,0 +1,76 @@
+Time spent: Around 25 hours
+Gaohong Liu 1561226
+Yongqin Wang 1561645
+
+Question 1:
+Since there are lots of different types of errors, it is better to deal with different errors with different operations. It could be better in debugging, and could be better to deal with different interrupts.
+
+Question 2:
+We do not have to anything to deal with softint since softint is in user space, where the kernel has protection on itself to aviod users' dangerous evil operations.
+
+Question 3:
+We call SETGATE in trap_init where to initialize interrupt at the very beginning. Meanwhile, we set the priviledge of break point interrupt as 3 which is user space. It allows user to user it in user space. Wrong init set up is setting the priviledge level of it as 0 which is in kernel space where user cannot user it.
+
+Question 4:
+This mechanism protects the kernel from users' evil operations. Users can not invoke all kinds of interrupts in kernel which could reduce the malicious operaitons which could do harm to kernel. Users could only invoke kinds of interrupts when they need such as breakpoint.
+
+Question 5:
+Backtrace tries to read and dereference %ebp and in the end due to the priviledge permision, users are not allowed to access kernel space, then the protection mechanism will report a page fault.
+
+Question 6:
+Cheimu$ make run-gofib
++ cc kern/init.c
++ ld obj/kern/kernel
++ mk obj/kern/kernel.img
+qemu-system-i386 -M q35 -serial mon:stdio -gdb tcp::25501 -D qemu.log -drive file=obj/kern/kernel.img,format=raw,if=none,id=kernel -device piix4-ide,id=piix4-ide -device ide-hd,drive=kernel,bus=piix4-ide.0 
+unknown keycodes `empty_aliases(qwerty)', please report to qemu-devel@nongnu.org
+451 decimal is 703 octal!
+CPU: QEMU Virtual CPU version 2.3.0
+  fpu pse tsc msr pae mce cx8 apic sep pge cmov pat mmx fxsr sse sse2
+  sse3 popcnt hypervisor
+E820: physical memory map [mem 0x00009000-0x000090a7]
+  [mem 0x00000000-0x0009fbff] available
+  [mem 0x0009fc00-0x0009ffff] reserved
+  [mem 0x000f0000-0x000fffff] reserved
+  [mem 0x00100000-0x07fdffff] available
+  [mem 0x07fe0000-0x07ffffff] reserved
+  [mem 0xb0000000-0xbfffffff] reserved
+  [mem 0xfffc0000-0xffffffff] reserved
+E820: physical memory 128MB
+check_page_alloc() succeeded!
+check_page() succeeded!
+check_kern_pgdir() succeeded!
+check_page_installed_pgdir() succeeded!
+[00000000] new env 00001000
+Incoming TRAP frame at 0xefffffbc
+Incoming TRAP frame at 0xefffffbc
+Incoming TRAP frame at 0xefffffbc
+1
+Incoming TRAP frame at 0xefffffbc
+1
+Incoming TRAP frame at 0xefffffbc
+2
+Incoming TRAP frame at 0xefffffbc
+3
+Incoming TRAP frame at 0xefffffbc
+5
+Incoming TRAP frame at 0xefffffbc
+8
+Incoming TRAP frame at 0xefffffbc
+13
+Incoming TRAP frame at 0xefffffbc
+21
+Incoming TRAP frame at 0xefffffbc
+34
+Incoming TRAP frame at 0xefffffbc
+55
+Incoming TRAP frame at 0xefffffbc
+[00001000] exiting gracefully
+[00001000] free env 00001000
+Destroyed the only environment - nothing more to do!
+Welcome to the JOS kernel monitor!
+Type 'help' for a list of commands.
+K> 
+
+Question 7:
+Yes, it will be able to. Since every time when programs end, kernel will destroy the environment by calling env_destroy(), where inside the implementation of env_destroy(), this functions will call env_free which will reclaim the environment and related memory space. Then related page tables and page table directories will be free.

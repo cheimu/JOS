@@ -1,0 +1,36 @@
+Time spent: Around 15 hours
+Gaohong Liu 1561226
+Yongqin Wang 1561645
+Question1:
+It should be uintptr_t or T, because once it returned, MMU will translate it to virtual address.
+
+Question2:
+1023	0xffc00000	Page table for top 4Mb of phys memory
+1022	0xff800000	Page table for next 4Mb of phys memory
+...
+960     0xf0000000      KERNBASE, KSTACKTOP, Page table for bottom 4MB of phys memory
+959     0xefc00000      CPU's Kernel Stack
+958     0xef800000      MMIOLIM, Memory-mapped I/O
+957     0xef400000      ULIM, MMIOBASE, Cur. Page Table (USER R-)
+956     0xef000000      UVPT, Ro Pages
+955     0xeec00000      UTOP, UENVS, UXSTACKTOP, RO ENVS
+954     0xeebff000      User Exception Stack
+953     0xeebfe000      Empty
+952     0xeebfd000      Normal User Stack
+...
+2	0x00800000	Reserved/Empty
+1	0x00400000	Reserved/Empty
+0	0x00000000	Reserved/Empty
+
+Question3:
+There is Current Privilege Level where 0 is for kernel and 3 is for users. So if CPL is not 0, then users cannot access it. In addition, in pte, the lower 12bits are management bits where including bits such as writable, present, and user to protect the kernel memory when the privilege bits don't match.
+
+Question4:
+256Mb
+0xffffffff - 0xf0000000 = 0x0fffffff which is 256M
+
+Question5:
+Each page directory points to 1024 page tables, each page table has 1024 entries, and each entry is 4 bytes. 1024 * 1024 * 4bytes = 4Mb. Each page directory is 4Kb. so Total is 4Kb + 4Mb = 4.004Mb
+
+Question6:
+Transition happens when we jump to label <relocated> in entry.S. It is possible because we only map [0, 8Mb) between virtual memory and physical memory and it is fine to turn on paging. It is necessary because now we only need first 8Mb, but we need more in the future.

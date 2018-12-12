@@ -1,0 +1,16 @@
+Time spent: Around 10 hours
+Gaohong Liu 1561226
+Yongqin Wang 1561645
+
+Question 1:
+kern/mpentry.S does not need to enable A20 and uses MPBOOTPHYS to calculate absolute addresses of its symbols, rather than relying on the linker to fill them. Since we are running multiprocessor, and each of them is running on the kernel space, we need to calculate real MPBOOTPHYS for each processor.
+
+Question 2:
+If there is no separate kernel stack, all of cpus' stacks will mix up together, there will be no protection between each cpu's kernel
+where the data could be overwritten. 
+
+Question 3:
+These environments are in kernel space and there is page directory, so no matter before and after addressing switch, pointer e can always get the address context.
+
+Question 4:
+Since switching from one environment to the other environment, we have to make sure we store all data in previous environment to maintain the integrity of previous process. It happened in env_run()

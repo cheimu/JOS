@@ -1,0 +1,220 @@
++ ld obj/kern/kernel
++ mk obj/kern/kernel.img
+451 decimal is 703 octal!
+CPU: QEMU Virtual CPU version 2.3.0
+  fpu pse tsc msr pae mce cx8 apic sep pge cmov pat mmx fxsr sse sse2
+  sse3 popcnt hypervisor
+E820: physical memory map [mem 0x00009000-0x000090a7]
+  [mem 0x00000000-0x0009fbff] available
+  [mem 0x0009fc00-0x0009ffff] reserved
+  [mem 0x000f0000-0x000fffff] reserved
+  [mem 0x00100000-0x07fdffff] available
+  [mem 0x07fe0000-0x07ffffff] reserved
+  [mem 0xb0000000-0xbfffffff] reserved
+  [mem 0xfffc0000-0xffffffff] reserved
+E820: physical memory 128MB
+check_page_alloc() succeeded!
+check_page() succeeded!
+check_kern_pgdir() succeeded!
+check_page_installed_pgdir() succeeded!
+ACPI: RSDP 0x000f62c0 000014 v00 BOCHS 
+ACPI: RSDT 0x07fe2233 000038 v01 BOCHS  BXPCRSDT 01 BXPC 01
+ACPI: FACP 0x07fe1df8 000074 v01 BOCHS  BXPCFACP 01 BXPC 01
+ACPI: SSDT 0x07fe1e6c 0002db v01 BOCHS  BXPCSSDT 01 BXPC 01
+ACPI: APIC 0x07fe2147 000078 v01 BOCHS  BXPCAPIC 01 BXPC 01
+ACPI: HPET 0x07fe21bf 000038 v01 BOCHS  BXPCHPET 01 BXPC 01
+ACPI: MCFG 0x07fe21f7 00003c v01 BOCHS  BXPCMCFG 01 BXPC 01
+SMP: 1 CPU(s)
+SMP: LAPIC 0xfee00000 v14
+SMP: IOAPIC 0xfec00000 v11 [global_irq 00-23]
+PCI: 00:00.0 8086:29c0 06.00.00 Bridge device
+PCI: 00:01.0 1234:1111 03.00.00 Display controller
+PCI: 00:02.0 8086:100e 02.00.00 Network controller
+PCI: 00:03.0 8086:7111 01.01.80 Mass storage controller
+PCI: 00:04.0 8086:5845 01.08.02 Mass storage controller
+  BAR 0 [mem 0xfebf0000-0xfebf1fff]
+  BAR 4 [mem 0xfebf3000-0xfebf3fff]
+PCI function 00:04.0 (8086:5845) enabled
+PCI: 00:1f.0 8086:2918 06.01.00 Bridge device
+PCI: 00:1f.2 8086:2922 01.06.01 Mass storage controller
+PCI: 00:1f.3 8086:2930 0c.05.00 Serial bus controller
+FS is running
+block cache is good
+superblock is good
+bitmap is good
+alloc_block is good
+2
+file_open is good
+file_get_block is good
+file_flush is good
+file_truncate is good
+file rewrite is good
+3
+5
+7
+11
+13
+17
+19
+23
+29
+31
+37
+41
+43
+47
+53
+59
+61
+67
+71
+73
+79
+83
+89
+97
+101
+103
+107
+109
+113
+127
+131
+137
+139
+149
+151
+157
+163
+167
+173
+179
+181
+191
+193
+197
+199
+211
+223
+227
+229
+233
+239
+241
+251
+257
+263
+269
+271
+277
+281
+283
+293
+307
+311
+313
+317
+331
+337
+347
+349
+353
+359
+367
+373
+379
+383
+389
+397
+401
+409
+419
+421
+431
+433
+439
+443
+449
+457
+461
+463
+467
+479
+487
+491
+499
+503
+509
+521
+523
+541
+547
+557
+563
+569
+571
+577
+587
+593
+599
+601
+607
+613
+617
+619
+631
+641
+643
+647
+653
+659
+661
+673
+677
+683
+691
+701
+709
+719
+727
+733
+739
+743
+751
+757
+761
+769
+773
+787
+797
+809
+811
+821
+823
+827
+829
+839
+853
+857
+859
+863
+877
+881
+883
+887
+907
+911
+919
+929
+937
+941
+947
+953
+967
+971
+977
+983
+991
+997
+1009
+qemu: terminating on signal 15 from pid 35187

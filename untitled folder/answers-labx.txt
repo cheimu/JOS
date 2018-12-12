@@ -1,0 +1,15 @@
+Time spent: Around 10 hours
+Liu 1561226
+Yongqin Wang 1561645
+
+We did two challenge problems: colored console and refactoring trap handlers.
+
+Colored Console:
+We decided to have a global variable to indicate color the console is using. We felt like that this varriable is very important so that we only allow user to use system call to change variable. We setup a new system call "sys_set_color()" to modify the global variable, which is then used in console.c to display text in different colors.
+a example will be:
+make qemu
+$color
+
+
+Trap Handlers:
+The reason we choose this problem is because it is kind of like hardcode to have a long list of definition and declaration in trap.c and it is be much more concise to have a generator to generate these things with only a few lines of code in c file. We modify the kern/trapentry.S where we define lots of globla variable of declaration of traphandler. Then in trap.c, we replace all of declaration with for loop.

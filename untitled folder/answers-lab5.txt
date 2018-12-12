@@ -1,0 +1,11 @@
+Time spent: Around 10 hours
+Gaohong Liu 1561226
+Yongqin Wang 1561645
+
+Question 1:
+Three:
+
+PCI: 00:03.0 8086:7111 01.01.80 Mass storage controller Name: 82371AB/EB/MB PIIX4 IDE
+PCI: 00:04.0 8086:5845 01.08.02 Mass storage controller Name: QEMU NVM Express Controller
+PCI: 00:1f.2 8086:2922 01.06.01 Mass storage controller Name: 82801IR/IO/IH (ICH9R/DO/DH) 6 port SATA Controller [AHCI mode]
+

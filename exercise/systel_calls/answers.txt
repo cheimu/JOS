@@ -1,0 +1,11 @@
+Gaohong Liu
+1561226
+gaohol@uw.edu
+
+
+1. in syscall.c, add extern int sys_date(void); because it declares a system call functions
+2. in syscall.c, add [SYS_date] sys_date, because we need to add this functions pointers to the system call array
+3. in syscall.h, add #define SYS_date 14 because we need to define system call number
+4. in sysproc.c, implement function sys_date(void) by reading the parameter of date, send to cmostime to read time because we need to implement date
+5. in user.h, add int date(struct rtcdate*) because we need to declare date function which will be used in syscall
+6. in usys.S add SYSCALL(date) because it can make date as system call function
